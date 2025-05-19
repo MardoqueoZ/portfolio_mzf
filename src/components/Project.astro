@@ -6,8 +6,15 @@ import Django from "./tech/Django.astro"
 import PostgreSQL from "./tech/PostgreSQL.astro"
 import React from "./tech/React.astro"
 import Tailwind from "./tech/Tailwind.astro"
+import Laravel from "./tech/Laravel.astro"
+import Js from "./tech/Js.astro"
+
 
 const TAGS = {
+    JS: {
+        name: "JavaScript",
+        icon: Js,
+    },
     Django: {
         name: "Django",
         icon: Django
@@ -27,7 +34,11 @@ const TAGS = {
     Tailwind: {
         name: "Tailwind",
         icon: Tailwind
-    }
+    },
+    Laravel: {
+        name: "Laravel",
+        icon: Laravel
+    },
 }
 
 const projects = [
@@ -43,6 +54,13 @@ const projects = [
         desc: "Este es un pequeño proyecto de práctica para la implementeación en conjunto de Django + React.JS.",
         tags: [TAGS.Django, TAGS.React, TAGS.Tailwind],
         github: "https://github.com/MardoqueoZ/django-crud-react",
+        image: "/image/proyecto.webp",
+    },
+    {
+        title: "Sistema HIS  para el Hospital Oncológico Lazos del Sur",
+        desc: "El proyecto fue desarrollado como parte del programa Heicomp de la Universidad Autónoma de Encarnación. En el mismo estuvo como colaborador del área de desarrollo ayudando a que el proyecto sea entregado en tiempo y forma.",
+        tags: [TAGS.JS, TAGS.Laravel, TAGS.Bootstrap],
+        github: "https://github.com/zadkiel-troche/HIS-LazosDelSur",
         image: "/image/proyecto.webp",
     },
 ]
