@@ -1,0 +1,31 @@
+---
+import Project from "./Project.astro"
+import Tech from "./Tech.astro"
+import About from "./About.astro"
+import Experience from "./Experience.astro"
+---
+
+<!-- Contenedor con scroll snap -->
+<div class="">
+
+    <!-- Sección: Sobre mí -->
+    <section id="about" class="md:h-screen snap-start px-8 py-6 md:py-12">
+        <About />
+    </section>
+    
+    <!-- Sección: Experience
+    <section id="experience" class="md:h-screen snap-start px-8 py-6 md:py-12">
+        <Experience />
+    </section> -->
+
+    <!-- Sección: Proyectos -->
+    <section id="projects" class="md:h-auto snap-start px-8 py-6 md:py-12">
+        <Project />
+    </section>
+    
+    <!-- Sección: Tecnologías -->
+    <section id="tech" class="md:h-screen snap-start px-8 py-6 md:py-12">
+        <Tech />
+    </section>
+    
+</div>

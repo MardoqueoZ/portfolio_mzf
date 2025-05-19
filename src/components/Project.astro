@@ -1,0 +1,88 @@
+---
+import Github from "./icon/Github.astro"
+import Projects from "./icon/Projects.astro"
+import Bootstrap from "./tech/Bootstrap.astro"
+import Django from "./tech/Django.astro"
+import PostgreSQL from "./tech/PostgreSQL.astro"
+import React from "./tech/React.astro"
+import Tailwind from "./tech/Tailwind.astro"
+
+const TAGS = {
+    Django: {
+        name: "Django",
+        icon: Django
+    },
+    Bootstrap: {
+        name: "Bootstrap",
+        icon: Bootstrap
+    },
+    PostgreSQL: {
+        name: "PostgreSQL",
+        icon: PostgreSQL
+    },
+    React: {
+        name: "React",
+        icon: React
+    },
+    Tailwind: {
+        name: "Tailwind",
+        icon: Tailwind
+    }
+}
+
+const projects = [
+    {
+        title: "Aplicación web para el registro de mascotas.",
+        desc: "Este proyecto fue desarrollado como mi Trabajo Final de Grado. Utilicé Django como framework de desarrollo y PostgreSQL como base de datos. La aplicación permite el registro de mascotas, vacunaciones, consultas y tratamientos. Además, consta de apis desarrolladas con Django Rest Framework para la comunicación con una aplicación móvil desarrollada en Flutter. ",
+        tags: [TAGS.Django, TAGS.Bootstrap, TAGS.PostgreSQL],
+        github: "https://github.com/ejemplo/proyecto1",
+        image: "/image/proyecto.webp",
+    },
+    {
+        title: "Proyecto CRUD: Django + React",
+        desc: "Este es un pequeño proyecto de práctica para la implementeación en conjunto de Django + React.JS.",
+        tags: [TAGS.Django, TAGS.React, TAGS.Tailwind],
+        github: "https://github.com/MardoqueoZ/django-crud-react",
+        image: "/image/proyecto.webp",
+    },
+]
+
+---
+
+<div class="flex items-center gap-3 mb-10">
+    <Projects class="text-yellow-400 md:w-10 md:h-10" />
+    <h2 class="text-yellow-400 text-2xl md:text-4xl  font-semibold">Proyectos</h2>
+</div>
+<div class="grid gap-6">
+    {projects.map((project) => (
+        <div class="rounded-2xl bg-neutral-900/50 border border-neutral-700 p-6 shadow-xl transition hover:scale-[1.02] hover:shadow-2xl duration-300 ">
+            
+            <!-- Imagen del proyecto -->
+            <img src={project.image} alt={project.title} class="rounded-xl mb-4 w-full object-cover h-48" />
+
+            <h2 class="text-2xl font-semibold text-yellow-400 mb-2">{project.title}</h2>
+            <p class="text-slate-200 font-semibold mb-4">{project.desc}</p>
+
+            <div class="flex gap-3 flex-wrap mb-4">
+                {project.tags.map((tag) => (
+                    <span class="inline-flex items-center gap-2 bg-neutral-800 text-neutral-200 px-3 py-1 rounded-full text-sm">
+                        <tag.icon class="w-4 h-4" />
+                        {tag.name}
+                    </span>
+                ))}
+            </div>
+
+            {project.github && (
+                <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-sm text-white/80 border border-white/20 rounded-lg px-4 py-2 hover:bg-white/10 hover:border-yellow-400 hover:text-white transition-all duration-300"
+                >
+                    <Github class="w-4 h-4" />
+                    Ver en GitHub
+                </a>
+            )}
+        </div>
+    ))}
+</div>
